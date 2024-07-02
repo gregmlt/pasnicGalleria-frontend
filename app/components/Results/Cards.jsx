@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function Cards({
   src,
@@ -10,8 +11,17 @@ export default function Cards({
   Edition,
   Prix,
 }) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/search/${Id_oeuvre}`);
+  };
+
   return (
-    <div className="flex flex-col bg-white shadow-lg hover:shadow-2xl rounded-lg p-4 cursor-pointer transform hover:scale-[1.01] transition-transform duration-500 w-[30%]">
+    <div
+      className="flex flex-col bg-white shadow-lg hover:shadow-2xl rounded-lg p-4 cursor-pointer transform hover:scale-[1.01] transition-transform duration-500 w-[30%]"
+      onClick={handleClick}
+    >
       <div className="h-44 object-cover rounded-t-lg mx-auto">
         <img
           src={src}

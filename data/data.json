@@ -22,7 +22,47 @@
   {
     "src": "./Images/Oeuvre.png",
     "Id_oeuvre": "ALLI_0003",
-    "Artiste": "BERNARD ALLIGAND",
+    "Artiste": "NANAR ALLIGAND",
+    "Titre": "Intentices",
+    "Dimension": "121 x 80",
+    "Statut": "A garder",
+    "Edition": "Original",
+    "Prix": "550"
+  },
+  {
+    "src": "./Images/Oeuvre.png",
+    "Id_oeuvre": "ALLI_0005",
+    "Artiste": "octave",
+    "Titre": "Intentices",
+    "Dimension": "121 x 80",
+    "Statut": "A jeter",
+    "Edition": "Original",
+    "Prix": "550"
+  },
+  {
+    "src": "./Images/Oeuvre.png",
+    "Id_oeuvre": "ALLI_0006",
+    "Artiste": "gugus",
+    "Titre": "Intentices",
+    "Dimension": "121 x 80",
+    "Statut": "Trop beau",
+    "Edition": "Original",
+    "Prix": "550"
+  },
+  {
+    "src": "./Images/Oeuvre.png",
+    "Id_oeuvre": "ALLI_0007",
+    "Artiste": "argus",
+    "Titre": "Intentices",
+    "Dimension": "121 x 90",
+    "Statut": "À Vendre",
+    "Edition": "Original",
+    "Prix": "550"
+  },
+  {
+    "src": "./Images/Oeuvre.png",
+    "Id_oeuvre": "ALLI_0008",
+    "Artiste": "plpolpo",
     "Titre": "Intentices",
     "Dimension": "121 x 80",
     "Statut": "À Vendre",
@@ -31,50 +71,10 @@
   },
   {
     "src": "./Images/Oeuvre.png",
-    "Id_oeuvre": "ALLI_0001",
-    "Artiste": "BERNARD ALLIGAND",
+    "Id_oeuvre": "ALLI_0009",
+    "Artiste": "ND",
     "Titre": "Intentices",
-    "Dimension": "121 x 80",
-    "Statut": "À Vendre",
-    "Edition": "Original",
-    "Prix": "550"
-  },
-  {
-    "src": "./Images/Oeuvre.png",
-    "Id_oeuvre": "ALLI_0001",
-    "Artiste": "BERNARD ALLIGAND",
-    "Titre": "Intentices",
-    "Dimension": "121 x 80",
-    "Statut": "À Vendre",
-    "Edition": "Original",
-    "Prix": "550"
-  },
-  {
-    "src": "./Images/Oeuvre.png",
-    "Id_oeuvre": "ALLI_0001",
-    "Artiste": "BERNARD ALLIGAND",
-    "Titre": "Intentices",
-    "Dimension": "121 x 80",
-    "Statut": "À Vendre",
-    "Edition": "Original",
-    "Prix": "550"
-  },
-  {
-    "src": "./Images/Oeuvre.png",
-    "Id_oeuvre": "ALLI_0001",
-    "Artiste": "BERNARD ALLIGAND",
-    "Titre": "Intentices",
-    "Dimension": "121 x 80",
-    "Statut": "À Vendre",
-    "Edition": "Original",
-    "Prix": "550"
-  },
-  {
-    "src": "./Images/Oeuvre.png",
-    "Id_oeuvre": "ALLI_0001",
-    "Artiste": "BERNARD ALLIGAND",
-    "Titre": "Intentices",
-    "Dimension": "121 x 80",
+    "Dimension": "110 x 80",
     "Statut": "À Vendre",
     "Edition": "Original",
     "Prix": "550"

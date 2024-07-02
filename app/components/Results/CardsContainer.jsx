@@ -1,8 +1,7 @@
 import React from "react";
 import Cards from "./Cards";
-import data from "../../../data/data.json";
 
-export default function ResultsContainer() {
+export default function ResultsContainer({ data }) {
   const content = data.map((e) => {
     return (
       <Cards

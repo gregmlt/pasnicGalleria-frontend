@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ListElement from "./ListElement";
-import data from "../../../data/data.json";
 
-export default function ListContainer() {
+export default function ListContainer({ data }) {
   const content = data.map((e) => {
     return (
       <ListElement

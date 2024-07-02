@@ -7,13 +7,14 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { useRouter } from "next/navigation";
 
-export default function SearchBar() {
+export default function SearchBar({ query }) {
   const router = useRouter();
-  const [query, setQuery] = useState("");
+  const [queryChild, setQueryChild] = useState("");
 
-  const search = (e) => {
-    e.preventDefault();
-    setQuery(e.target.value);
+  const search = async (e) => {
+    const value = e.target.value;
+    await setQueryChild(value);
+    query(value);
   };
 
   return (
@@ -28,11 +29,15 @@ export default function SearchBar() {
         className=" placeholder-gray-400 text-gray-900 p-4 place-content-center rounded-md w-[60%] border-2 border-[#1876D1]"
         placeholder="Search"
         onChange={search}
-        value={query}
+        value={queryChild}
       />
       <Box sx={{ "& > :not(style)": { m: 1 } }}>
-        <Fab color="primary" aria-label="add">
-          <AddIcon onClick={() => router.push("/newArticle")} />
+        <Fab
+          color="primary"
+          aria-label="add"
+          onClick={() => router.push("/newArticle")}
+        >
+          <AddIcon />
         </Fab>
       </Box>
     </div>
