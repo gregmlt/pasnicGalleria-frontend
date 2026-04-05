@@ -93,7 +93,6 @@ export default function Dashboard() {
     const t = getToken();
     const r = getRole();
     if (!t) { router.push("/"); return; }
-    const r = getRole();
     if (r && !["admin", "superadmin"].includes(r)) { router.push("/search"); return; }
     fetch(`${BACKEND_URL}/articles/get/all`, {
       headers: { Authorization: `Bearer ${t}` },
