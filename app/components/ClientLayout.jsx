@@ -4,30 +4,28 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Provider, useDispatch } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import Header from "./Header";
 import usersReducer, { setUser } from "@/reducers/users";
 
 /**
- * Store Redux unique, créé au niveau du layout pour être partagé
- * par toutes les pages (Search, Dashboard, ArtDetails, etc.).
+ * Store Redux unique, partagé par toutes les pages.
  */
 const store = configureStore({
   reducer: { users: usersReducer },
 });
 
 /**
- * Contenu interne du layout — a accès au store Redux.
- * Responsabilités :
- * - Rehydrater le store depuis localStorage au premier chargement (survie au refresh)
- * - Afficher ou masquer le Header selon la page courante
+ * Contenu interne — accès au store Redux.
+ * - Rehydrate la session depuis localStorage au refresh
+ * - Affiche le Header sur toutes les pages sauf la connexion
  */
 function LayoutContent({ children }) {
   const pathname = usePathname();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Restaure la session après un refresh de page
     const token = localStorage.getItem("pg_token");
     const role = localStorage.getItem("pg_role");
     if (token && role) {
@@ -35,7 +33,6 @@ function LayoutContent({ children }) {
     }
   }, []);
 
-  // Le Header est masqué sur la page de connexion
   const showHeader = pathname !== "/";
 
   return (
@@ -47,13 +44,14 @@ function LayoutContent({ children }) {
 }
 
 /**
- * Wrapper Provider — expose le store Redux à toute l'application.
- * C'est ce composant qui est importé dans layout.jsx.
+ * Wrapper principal — fournit Redux + Google OAuth à toute l'application.
  */
 export default function ClientLayout({ children }) {
   return (
-    <Provider store={store}>
-      <LayoutContent>{children}</LayoutContent>
-    </Provider>
+    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}>
+      <Provider store={store}>
+        <LayoutContent>{children}</LayoutContent>
+      </Provider>
+    </GoogleOAuthProvider>
   );
 }
