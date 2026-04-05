@@ -1,9 +1,14 @@
 "use client";
-import React from "react";
 import ArtDetails from "../../components/Art/ArtDetails";
 
-export default function artPage(params) {
-  const id = params.params.articleId;
-
-  return <ArtDetails ID={id} />;
+/**
+ * Page de détail d'une oeuvre.
+ * L'identifiant [articleId] peut être :
+ * - un ID lisible (ex: "ALLI_0001")
+ * - un ObjectId MongoDB (pour les oeuvres sans ID généré)
+ *
+ * Le composant ArtDetails gère l'affichage, l'édition et la suppression.
+ */
+export default function ArtPage({ params }) {
+  return <ArtDetails ID={params.articleId} />;
 }
