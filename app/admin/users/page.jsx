@@ -34,9 +34,20 @@ export default function UsersAdminPage() {
 
   useEffect(() => {
     if (!token) { router.push("/"); return; }
-    if (role !== "superadmin") { router.push("/search"); return; }
-    fetchUsers();
+    if (role === "superadmin") fetchUsers();
   }, [token]);
+
+  if (role && role !== "superadmin") {
+    return (
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4">
+        <div className="text-center">
+          <p className="text-slate-500 text-4xl mb-4">🔒</p>
+          <h2 className="text-white text-lg font-light mb-2">Accès restreint</h2>
+          <p className="text-slate-400 text-sm">Cette page est réservée au super administrateur.</p>
+        </div>
+      </div>
+    );
+  }
 
   const fetchUsers = async () => {
     setLoading(true);
