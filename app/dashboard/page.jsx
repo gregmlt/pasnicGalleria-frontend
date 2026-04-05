@@ -82,14 +82,19 @@ function StatCard({ label, value, sub, icon }) {
 export default function Dashboard() {
   const router = useRouter();
   const token = useSelector((s) => s.users.token);
+  const role = useSelector((s) => s.users.role);
   const [oeuvres, setOeuvres] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getToken = () => token || (typeof window !== "undefined" ? localStorage.getItem("pg_token") : "");
+  const getRole = () => role || (typeof window !== "undefined" ? localStorage.getItem("pg_role") : "");
 
   useEffect(() => {
     const t = getToken();
+    const r = getRole();
     if (!t) { router.push("/"); return; }
+    // Dashboard réservé aux admins et superadmins
+    if (r && !["admin", "superadmin"].includes(r)) { router.push("/search"); return; }
     fetch(`${BACKEND_URL}/articles/get/all`, {
       headers: { Authorization: `Bearer ${t}` },
     })
