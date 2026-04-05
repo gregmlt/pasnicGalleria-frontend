@@ -34,7 +34,7 @@ export default function UsersAdminPage() {
 
   useEffect(() => {
     if (!token) { router.push("/"); return; }
-    if (role !== "admin") { router.push("/search"); return; }
+    if (role !== "superadmin") { router.push("/search"); return; }
     fetchUsers();
   }, [token]);
 
