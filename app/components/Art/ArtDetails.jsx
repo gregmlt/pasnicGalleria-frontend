@@ -265,7 +265,7 @@ export default function ArtDetails({ ID }) {
                     </span>
                   )}
                   {/* Bouton édition — admins uniquement */}
-                  {role === "admin" && !editable && (
+                  {["admin", "superadmin"].includes(role) && !editable && (
                     <button
                       onClick={() => setEditable(true)}
                       className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-150"
@@ -326,7 +326,7 @@ export default function ArtDetails({ ID }) {
             )}
 
             {/* Bouton Supprimer — admins uniquement, hors mode édition */}
-            {role === "admin" && !editable && (
+            {["admin", "superadmin"].includes(role) && !editable && (
               <button
                 onClick={() => setShowDeleteConfirm(true)}
                 className="w-full py-3 border border-red-200 text-red-500 hover:bg-red-50 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2"

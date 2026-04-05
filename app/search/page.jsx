@@ -193,7 +193,7 @@ export default function Search() {
           </div>
 
           {/* Bouton Ajouter (admin only) */}
-          {getRole() === "admin" && (
+          {["admin", "superadmin"].includes(getRole()) && (
             <button
               onClick={() => router.push("/newArticle")}
               className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-4 py-2.5 rounded-xl text-sm font-medium transition-colors duration-200 whitespace-nowrap shadow-sm"
@@ -209,7 +209,7 @@ export default function Search() {
       </div>
 
       {/* Barre d'actions bulk */}
-      {selectionMode && getRole() === "admin" && (
+      {selectionMode && ["admin", "superadmin"].includes(getRole()) && (
         <div className="bg-blue-600 text-white px-4 sm:px-6 lg:px-8 py-3">
           <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-3">
             <span className="text-sm font-medium">

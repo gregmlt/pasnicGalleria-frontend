@@ -28,7 +28,7 @@ export default function NewArticle() {
 
   useEffect(() => {
     if (!token) router.push("/");
-    else if (role !== "admin") router.push("/search");
+    else if (role && !["admin", "superadmin"].includes(role)) router.push("/search");
   }, [token, role]);
 
   const handleImageChange = (e) => {
