@@ -31,8 +31,8 @@ export default function ArtDetails({ ID }) {
   const router = useRouter();
 
   // Lecture token/role depuis Redux avec fallback localStorage (après refresh)
-  const token = useSelector((s) => s.users.token) || localStorage.getItem("pg_token");
-  const role  = useSelector((s) => s.users.role)  || localStorage.getItem("pg_role");
+  const token = useSelector((s) => s.users.token) || (typeof window !== "undefined" ? localStorage.getItem("pg_token") : "");
+  const role  = useSelector((s) => s.users.role)  || (typeof window !== "undefined" ? localStorage.getItem("pg_role") : "");
 
   const [oeuvre, setOeuvre] = useState(null);
   const [loading, setLoading] = useState(true);

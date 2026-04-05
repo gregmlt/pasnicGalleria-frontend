@@ -27,12 +27,12 @@ export default function Search() {
   const role = useSelector((state) => state.users.role);
   const router = useRouter();
 
-  const getToken = () => token || localStorage.getItem("pg_token");
-  const getRole = () => role || localStorage.getItem("pg_role");
+  const getToken = () => token || (typeof window !== "undefined" ? localStorage.getItem("pg_token") : "");
+  const getRole = () => role || (typeof window !== "undefined" ? localStorage.getItem("pg_role") : "");
 
   useEffect(() => {
     if (!token) {
-      const stored = localStorage.getItem("pg_token");
+      const stored = typeof window !== "undefined" ? localStorage.getItem("pg_token") : null;
       if (!stored) router.push("/");
     }
   }, [token]);
